@@ -313,39 +313,11 @@ II. Create Collection
 db.createCollection("StudentsInfo")
 
 III. Insert Operation
-db.StudentsInfo.insertOne({
-  "student_name": "Bachchan Pandey",
-  "roll_number": 1,
-  "email": "bpandey@gmail.com",
-  "course_enrolled": "MCA",
-  "year_of_admission": 2024,
-  "is_active": true
-})
-
-db.StudentsInfo.insertMany([
-  {
-    "student_name": "Amrendra Bahubali",
-    "roll_number": 2,
-    "email": "amrendrab@gmail.com",
-    "course_enrolled": "MCA",
-    "year_of_admission": 2023,
-    "is_active": false
-  },
-  {
-    "student_name": "Chatur Ramalingam",
-    "roll_number": 3,
-    "email": "chatur123@gmail.com",
-    "course_enrolled": "MCA",
-    "year_of_admission": 2024,
-    "is_active": true
-  }
-])
+db.StudentsInfo.insertOne({"student_name": "Bachchan Pandey","roll_number": 1,"email": "bpandey@gmail.com","course_enrolled": "MCA","year_of_admission": 2024,"is_active": true})
+db.StudentsInfo.insertMany([{"student_name": "Amrendra Bahubali","roll_number": 2,"email": "amrendrab@gmail.com","course_enrolled": "MCA","year_of_admission": 2023,"is_active": false},{"student_name": "Raju Rastogi","roll_number": 3,"email": "rajurastogi@gmail.com","course_enrolled": "BCA","year_of_admission": 2024,"is_active": true},{"student_name": "Farhan Qureshi","roll_number": 4,"email": "farhanphotographer@gmail.com","course_enrolled": "BCA","year_of_admission": 2020,"is_active": false},{"student_name": "Chatur Ramalingam","roll_number": 5,"email": "chatur123@gmail.com","course_enrolled": "MCA","year_of_admission": 2025,"is_active": true}])
 
 IV. Update Operation
-db.StudentsInfo.updateOne(
-  {"roll_number": 2},
-  {$set: {"year_of_admission": 2024, "is_active": true}}
-)
+db.StudentsInfo.updateOne({"roll_number": 2},{$set: {"year_of_admission": 2024, "is_active": true}})
 db.StudentsInfo.updateMany({}, {$set: {"city": "Shahada"}})
 
 V. Select Operation
@@ -369,19 +341,9 @@ db.StudentsInfo.find({"year_of_admission": {$gte: 2024}})
 
 db.StudentsInfo.find({"year_of_admission": {$lte: 2023}})
 
-db.StudentsInfo.find({
-  $and: [
-    {"is_active": true},
-    {"year_of_admission": 2024}
-  ]
-})
+db.StudentsInfo.find({$and: [{"is_active": true},{"year_of_admission": 2024}]})
 
-db.StudentsInfo.find({
-  $or: [
-    {"is_active": true},
-    {"year_of_admission": 2023}
-  ]
-})
+db.StudentsInfo.find({$or: [{"is_active": true},{"year_of_admission": 2023}]})
 
 db.StudentsInfo.find({"is_active": {$not: {$eq: true}}})
 
