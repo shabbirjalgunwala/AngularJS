@@ -305,7 +305,38 @@
 </body>
 </html>
 
-13.MongoDB Queries and Operations
+13.Inline Template in Angular JS
+<html ng-app="AngApp">
+  <head>
+    <script src="https://ajax.googleapis.com/ajax/libs/angularjs/1.8.2/angular.min.js"></script>
+  </head>
+  <body ng-controller="AngController">
+    <hw></hw>
+    <script>
+      var app = angular.module("AngApp", []);
+      app.component("hw", {
+        template: `
+            <h1>Hello World</h1>`,
+      });
+    </script>
+  </body>
+</html>
+
+14.External Template in AngularJS
+<!-- index.html -->
+<html ng-app>
+  <head>
+    <script src="https://ajax.googleapis.com/ajax/libs/angularjs/1.8.2/angular.min.js"></script>
+  </head>
+  <body>
+    <div ng-include="'home.html'"></div>
+  </body>
+</html>
+<!-- home.html -->
+<h1>Hello Everyone</h1>
+<!-- double quotes -> Expression | double quotes + single quote -> String literal -->
+
+15.MongoDB Queries and Operations
 I. Create Database
 use database_name
 
@@ -350,4 +381,3 @@ db.StudentsInfo.find({"is_active": {$not: {$eq: true}}})
 db.StudentsInfo.find({"city": {$exists: true}})
 
 db.StudentsInfo.find({"student_name": {$regex: /^C/}})
-
